@@ -1,0 +1,34 @@
+<html>
+  {% include "header.html" %}
+<body>
+	<div class="content">
+		<h2 class="actionhead">Edit "{{flower.name}}"?</h2>
+
+	<form action="{{url_for('editFlower', arrangement_id=arrangement_id, flower_id=flower.id)}}" method="POST">
+
+  	<p class="label">Name:</p>
+
+    	<input class="textinput" type="text" size="30" name="name" placeholder="{{flower.name}}">
+
+    	<p class="label">Description:</p>
+
+      	<input class="textinput" type="text" size="30" name="description" placeholder="{{flower.description}}">
+
+    	<p class="label">Price:</p>
+
+      	<input class="textinput" type="text" size="8" name="price" placeholder="{{flower.price}}">
+
+        <p class="label">Picture URL:</p>
+
+        <input class="textinput" type="text" size="8" name="picture" placeholder="{{flower.picture}}">
+
+    	<div class="formactioncontainer">
+          	<input class="button formaction" type="submit" value="Confirm">
+          	<a class="formaction" href="{{url_for('showArrangement', arrangement_id = flower.arrangement_id)}}">Cancel</a>
+    	</div>
+
+	</form>
+	</div>
+</body>
+
+</html>

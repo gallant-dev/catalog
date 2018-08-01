@@ -1,0 +1,17 @@
+<html>
+ {% include "header.html" %}
+<body>
+ <div class="content">
+	<h2 class="actionhead">Delete "{{arrangement.name}}"?</h2>
+	<form action="{{url_for('deleteArrangement', arrangement_id = arrangement.id)}}" method = "POST">
+
+  	<input class="delete" type="submit" value="Delete">
+  	<a class="cancel" href="{{url_for('showCatalog')}}">Cancel</a>
+
+	</form>
+
+ </div>
+
+</body>
+
+</html>
