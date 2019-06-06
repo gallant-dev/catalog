@@ -1,66 +1,66 @@
 <html>
-<head>
-  {% include "publicHeader.html" %}
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js">
-   </script>
-   <script src="https://apis.google.com/js/platform.js?onload=start">
-   </script>
-</head>
+  <head>
+    {% include "publicHeader.html" %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
+    <script>
+      function start() {
+        gapi.load('auth2', function() {
+          auth2 = gapi.auth2.init({
+            client_id: '637640698415-ml3595vm3b2ce4to327iube6q93as7f2.apps.googleusercontent.com',
+          });
+        });
+      }
+    </script>
+  </head>
 
 
-<body>
-	<div class="content">
+  <body>
+	   <div class="content">
 	       <div class="google-login">
-		<h3 id="login-text" class="google-login-text">Sign in with your Google Account</h3>
-    		  <div id="signinButton">
-      		   <span class="g-signin"
-                    data-scope="openid email"
-                    data-clientid="637640698415-ml3595vm3b2ce4to327iube6q93as7f2.apps.googleusercontent.com"
-                    data-redirecturi="postmessage"
-                    data-accesstype="offline"
-                    data-cookiepolicy="single_host_origin"
-                    data-callback="signInCallback"
-                    data-approvalprompt="force">
-                   </span>
-    		  </div> 
-		</div>
+		         <h3 id="login-text" class="google-login-text">Sign in with your Google Account</h3>
+             <button id="signinButton">Sign in with Google</button>
+         </div>
 
-		<div id="result"></div>
+		       <div id="result"></div>
 
-		<script>
-		document.getElementById('header-login').style.display = "none";
+		         <script>
+		           document.getElementById('header-login').style.display = "none";
+               
+               $('#signinButton').click(function(){
+                 auth2.grantOfflineAccess().then(signInCallback);
+                }
+               );
 
-		function signInCallback(authResult) {
-  		if (authResult['code']) {
-    		$('#signinButton').attr('style', 'display: none');
+		           function signInCallback(authResult) {
+  		             if (authResult['code']) {
+    		               $('#signinButton').attr('style', 'display: none');
 
-    		$.ajax({
-      		type: 'POST',
-      		url: '/catalog/gconnect?state={{STATE}}',
-      		processData: false,
-      		data: authResult['code'],
-      		contentType: 'application/octet-stream; charset=utf-8',
-      		success: function(result) {
+    		                 $.ajax({
+      		                   type: 'POST',
+      		                   url: '/catalog/gconnect?state={{STATE}}',
+      		                   processData: false,
+      		                   data: authResult['code'],
+      		                   contentType: 'application/octet-stream; charset=utf-8',
+      		                   success: function(result) {
+        	                      if (result) {
+          		                      $('#result').html('<h3 class="google-login-text">Login Successful!</h3></br>'+ result + '</br><h3 class="google-login-text">Redirecting...</h3>')
+         		                        document.getElementById("login-text").style.display = "none";
+		                                 setTimeout(function() {
+          		                      window.location.href = "/catalog/arrangements";
+         	                          }, 4000);
+      		                      }
+                                else if (authResult['error']) {
+                                  console.log('There was an error: ' + authResult['error']);
+  		                          }
+                                else
+                                {
+                                  $('#result').html('Failed to make a server-side call. Check your configuration and console.');
+                                }
+      	                       }
 
-        	if (result) {
-          		$('#result').html('<h3 class="google-login-text">Login Successful!</h3></br>'+ result + '</br><h3 class="google-login-text">Redirecting...</h3>')
-         		document.getElementById("login-text").style.display = "none";
-		setTimeout(function() {
-          		window.location.href = "/catalog/arrangements";
-         	}, 4000);
-
-
-      		} else if (authResult['error']) {
-
-    		console.log('There was an error: ' + authResult['error']);
-  		} else {
-        		$('#result').html('Failed to make a server-side call. Check your configuration and console.');
-         	}
-
-      	}
-
-  	}); } }
-	</script>
-	</div>
-</body>
+  	                          }); } }
+             </script>
+     </div>
+  </body>
 </html>
