@@ -1,42 +1,43 @@
 <html>
+{% include "appHeader.html" %}
 {% include "publicHeader.html" %}
 
 <body>
- <div class="content">
-  <h2 class = "arrangement">Types of Arrangements</h2>
+    <div class="content">
+        <h2 class="arrangement">Types of Arrangements</h2>
 
-  <div class="topmenu">
-    <a class="topmenuitem" href='{{url_for('showCatalog')}}'>Refresh</a>
-    <a class="topmenuitem" href='{{url_for('createArrangement')}}'>Add New</a>
-  </div>
-
-  {% for arrangement in arrangements %}
-
-  <div class="card">
-
-    <a class="arrangementLink" href="{{url_for('showArrangement', arrangement_id = arrangement.id)}}" >
-	
-	<div class="cardPicContainer">
-        	
-		<img class="cardPic" src="{{arrangement.picture}}" alt="A Flower Picture"></img>
-	</div>
-
-        <div class="cardDetails">
-                <p class="arrangementName">{{arrangement.name}}</p>
-
-                <p class="description">{{arrangement.description}}</p>
-
-                <p class="price">{{arrangement.base_price}}</p>
+        <div class="topmenu">
+            <a class="topmenuitem" href='{{url_for('showCatalog')}}'>Refresh</a>
+            <a class="topmenuitem" href='{{url_for('createArrangement')}}'>Add New</a>
         </div>
-    </a>
 
-    </br></br>
+        {% for arrangement in arrangements %}
 
-  </div>
+        <div class="card">
+
+            <a class="arrangementLink" href="{{url_for('showArrangement', arrangement_id = arrangement.id)}}">
+
+                <div class="cardPicContainer">
+
+                    <img class="cardPic" src="{{arrangement.picture}}" alt="A Flower Picture"></img>
+                </div>
+
+                <div class="cardDetails">
+                    <p class="arrangementName">{{arrangement.name}}</p>
+
+                    <p class="description">{{arrangement.description}}</p>
+
+                    <p class="price">{{arrangement.base_price}}</p>
+                </div>
+            </a>
+
+            </br></br>
+
+        </div>
 
 
-  {% endfor %}
- </div>
+        {% endfor %}
+    </div>
 </body>
 
 </html>

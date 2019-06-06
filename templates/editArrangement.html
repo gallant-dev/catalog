@@ -1,38 +1,39 @@
 <html>
-  {% include "header.html" %}
+ {% include "appHeader.html" %}
+ {% include "header.html" %}
 
 <body>
-<div class="content">
-	<h2 class="actionhead">Edit "{{arrangement.name}}"?</h2>
+    <div class="content">
+        <h2 class="actionhead">Edit "{{arrangement.name}}"?</h2>
 
-	<a class="editflowers" href="{{url_for('showArrangement', arrangement_id = arrangement.id)}}">Edit Flowers</a>
+        <a class="editflowers" href="{{url_for('showArrangement', arrangement_id = arrangement.id)}}">Edit Flowers</a>
 
-		<form action="{{url_for('editArrangement', arrangement_id=arrangement.id)}}" method="POST">
+        <form action="{{url_for('editArrangement', arrangement_id=arrangement.id)}}" method="POST">
 
-  		<p class="label">Name:</p>
+            <p class="label">Name:</p>
 
-    		<input class="textinput" type="text" size="30" name="name" placeholder="{{arrangement.name}}">
+            <input class="textinput" type="text" size="30" name="name" placeholder="{{arrangement.name}}">
 
-  		<p class="label">Description:</p>
+            <p class="label">Description:</p>
 
-    		<input class="textinput" type="text" size="30" name="description" placeholder="{{arrangement.description}}">
+            <input class="textinput" type="text" size="30" name="description" placeholder="{{arrangement.description}}">
 
-  		<p class="label">Price:</p>
+            <p class="label">Price:</p>
 
-    		<input class="textinput" type="text" size="30" name="base_price" placeholder="{{arrangement.base_price}}">
+            <input class="textinput" type="text" size="30" name="base_price" placeholder="{{arrangement.base_price}}">
 
-                <p class="label">Picture URL:</p>
+            <p class="label">Picture URL:</p>
 
-                <input class="textinput" type="text" size="30" name="picture" placeholder="{{arrangement.picture}}">
+            <input class="textinput" type="text" size="30" name="picture" placeholder="{{arrangement.picture}}">
 
 
-    		<div class="formactions">
-      			<input class="button formaction" type="submit" value="Confirm">
-      			<a class="cancel formaction" href="{{url_for('showCatalog')}}">Cancel</a>
-    		</div>
+            <div class="formactions">
+                <input class="button formaction" type="submit" value="Confirm">
+                <a class="cancel formaction" href="{{url_for('showCatalog')}}">Cancel</a>
+            </div>
 
-		</form>
-	</div>
+        </form>
+    </div>
 </body>
 
 </html>

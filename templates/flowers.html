@@ -1,60 +1,62 @@
 <html>
+{% include "appHeader.html" %}
 {% include "header.html" %}
 <body>
- <div class="content">
-  	<h2 class = "arrangement">{{arrangement.name}}</h2>
+    <div class="content">
+        <h2 class="arrangement">{{arrangement.name}}</h2>
 
-  <div class="topmenu">
-    <a class="topmenuitem" href='{{url_for('showCatalog')}}'>Back</a>
+        <div class="topmenu">
+            <a class="topmenuitem" href='{{url_for('showCatalog')}}'>Back</a>
 
-    <a class="topmenuitem" href='{{url_for('addFlower', arrangement_id = arrangement.id)}}'>Add New</a>
-  </div>
+            <a class="topmenuitem" href='{{url_for('addFlower', arrangement_id = arrangement.id)}}'>Add New</a>
+        </div>
 
-  {% if flowers %}
+        {% if flowers %}
 
-  {% for flower in flowers %}
+        {% for flower in flowers %}
 
-  <div class="arrangementLink">
-    
-    <div class="cardPicContainer">
-      
-     <img class="cardPic" src="{{flower.picture}}"></img>
-    
-    </div>
+        <div class="arrangementLink">
 
-    <div class="cardDetails">
-     <h3>{{flower.name}}</h3>
+            <div class="cardPicContainer">
 
-     <p class="description">{{flower.description}}</p>
+                <img class="cardPic" src="{{flower.picture}}"></img>
 
-     <p class="price"> {{flower.price}} </p>
+            </div>
 
-     <div class="actions">
+            <div class="cardDetails">
+                <h3>{{flower.name}}</h3>
 
-       <a href ='{{url_for('editFlower', arrangement_id = arrangement.id, flower_id = flower.id)}}'>Edit</a>
+                <p class="description">{{flower.description}}</p>
 
-       <a href ='{{url_for('deleteFlower', arrangement_id = arrangement.id, flower_id = flower.id)}}'>Delete</a>
+                <p class="price"> {{flower.price}} </p>
 
-     </div> 
-    </div>
-    </br></br>
+                <div class="actions">
 
-  </div>
+                    <a href='{{url_for('editFlower', arrangement_id = arrangement.id, flower_id = flower.id)}}'>Edit</a>
+
+                    <a href='{{url_for('deleteFlower', arrangement_id = arrangement.id, flower_id = flower.id)}}'>Delete</a>
+
+                </div>
+            </div>
+            </br></br>
+
+        </div>
 
 
-{% endfor %}
+        {% endfor %}
 
-{% else %}
+        {% else %}
 
-<div>
-  <p>No Flowers Yet!
-    <a href='{{url_for('addFlower', arrangement_id = arrangement.id)}}'>
-    Add the first.
-    </a>
-  </p>
-</div>
+        <div>
+            <p>
+                No Flowers Yet!
+                <a href='{{url_for('addFlower', arrangement_id = arrangement.id)}}'>
+                    Add the first.
+                </a>
+            </p>
+        </div>
 
-{% endif %}
+        {% endif %}
 
 </body>
 

@@ -1,46 +1,47 @@
 <html>
+{% include "appHeader.html" %}
 {% include "publicHeader.html" %}
 
 <body>
- <div class="content">
-  <h2 class = "arrangement">{{arrangement.name}}</h2>
+    <div class="content">
+        <h2 class="arrangement">{{arrangement.name}}</h2>
 
-  <div class="topmenu">
-    <a class="topmenuitem" href='{{url_for('showCatalog')}}'>Back</a>
+        <div class="topmenu">
+            <a class="topmenuitem" href='{{url_for('showCatalog')}}'>Back</a>
 
-  </div>
-  {% if flowers%}
+        </div>
+        {% if flowers%}
 
-  {% for flower in flowers %}
+        {% for flower in flowers %}
 
-  <div>
-   <div class="cardPicContainer">
-	   
-	<img class="cardPic" src="{{flower.picture}}"></img>
-   </div>
+        <div>
+            <div class="cardPicContainer">
 
-   <div class="cardDetails"> 
-    <h3>{{flower.name}}</h3>
+                <img class="cardPic" src="{{flower.picture}}"></img>
+            </div>
 
-    <p class="description">{{flower.description}}</p>
+            <div class="cardDetails">
+                <h3>{{flower.name}}</h3>
 
-    <p class="price"> {{flower.price}} </p>
-   </div>
-   
-   </br></br>
+                <p class="description">{{flower.description}}</p>
 
-  </div>
+                <p class="price"> {{flower.price}} </p>
+            </div>
+
+            </br></br>
+
+        </div>
 
 
- {% endfor %}
+        {% endfor %}
 
- {% else %}
+        {% else %}
 
- <p>No Flowers Yet! Please <a href="{{url_for('showLogin')}}">Sign in</a> to Add the First!<p>
+        <p>No Flowers Yet! Please <a href="{{url_for('showLogin')}}">Sign in</a> to Add the First!<p>
 
- {% endif %}
+            {% endif %}
 
- </div>
+    </div>
 </body>
 
 </html>

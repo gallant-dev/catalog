@@ -1,31 +1,32 @@
 <html>
-  {% include "header.html" %}
+ {% include "appHeader.html" %}
+ {% include "header.html" %}
 
 <body>
-	<div class="content">
-		<h2 class="actionhead">Add a flower?</h2>
+    <div class="content">
+        <h2 class="actionhead">Add a flower?</h2>
 
-		<form action="{{url_for('addFlower', arrangement_id=arrangement.id)}}" method="post">
+        <form action="{{url_for('addFlower', arrangement_id=arrangement.id)}}" method="post">
 
-  			<p class="label">Name:</p>
-    			<input class="textinput" type="text" size="30" name="name">
+            <p class="label">Name:</p>
+            <input class="textinput" type="text" size="30" name="name">
 
-  			<p class="label">Description:</p>
-    			<input class="textinput" type="text" size="30" name="description">
+            <p class="label">Description:</p>
+            <input class="textinput" type="text" size="30" name="description">
 
-  			<p class="label">Price:</p>
-    			<input class="textinput" type="text" size="8" name="price">
+            <p class="label">Price:</p>
+            <input class="textinput" type="text" size="8" name="price">
 
-                        <p class="label">Picture:</p>
-                        <input class="textinput" type="text" size="8" name="picture">
+            <p class="label">Picture:</p>
+            <input class="textinput" type="text" size="8" name="picture">
 
-  			<div class="formactioncontainer">
-    				<input class="button formaction" type="submit" value="Create">
-    				<a class="formaction" href="{{url_for('showArrangement', arrangement_id = arrangement.id)}}">Cancel</a>
-  			</div>
+            <div class="formactioncontainer">
+                <input class="button formaction" type="submit" value="Create">
+                <a class="formaction" href="{{url_for('showArrangement', arrangement_id = arrangement.id)}}">Cancel</a>
+            </div>
 
-		</form>
-	</div>
+        </form>
+    </div>
 </body>
 
 </html>
