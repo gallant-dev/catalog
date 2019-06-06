@@ -1,4 +1,4 @@
-<html>
+<html lang="en">
 <head>
     {% include "appHeader.html" %}
     {% include "publicHeader.html" %}
@@ -16,18 +16,18 @@
 </head>
 
 
-  <body>
-	   <div class="content">
-	       <div class="google-login">
-		         <h3 id="login-text" class="google-login-text">Sign in with your Google Account</h3>
-             <button id="signinButton">Sign in with Google</button>
-         </div>
+<body>
+    <div class="content">
+        <div class="google-login">
+            <h3 id="login-text" class="google-login-text">Sign in with your Google Account</h3>
+            <button id="signinButton">Sign in with Google</button>
+        </div>
 
-		       <div id="result"></div>
+        <div id="result"></div>
 
-		         <script>
+        <script>
 		           document.getElementById('header-login').style.display = "none";
-               
+
                $('#signinButton').click(function(){
                  auth2.grantOfflineAccess().then(signInCallback);
                 }
@@ -61,7 +61,7 @@
       	                       }
 
   	                          }); } }
-             </script>
-     </div>
-  </body>
+        </script>
+    </div>
+</body>
 </html>
