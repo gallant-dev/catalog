@@ -304,10 +304,8 @@ p {
 }
 
 .site-logo {
- position: absolute;
- width: 10%;
- max-width: 80.6px;
- min-width: 73px;
+ width: 30px;
+ height: 30px;
  border-radius: 10px;
 }
 
