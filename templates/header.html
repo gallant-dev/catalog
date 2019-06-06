@@ -1,25 +1,41 @@
 ﻿<div class="header, content">
-        <div class="headerloginmenu">
-		{% with messages = get_flashed_messages() %}
+    <div class="headerloginmenu">
+        {% with messages = get_flashed_messages() %}
 
-		{% if messages %}
+        {% if messages %}
 
-  		<ul>
+        <ul>
 
-  		{% for message in messages %}
+            {% for message in messages %}
 
-  			<li class="actionhead"><strong>{{message}}</strong></li>
+            <li class="actionhead"><strong>{{message}}</strong></li>
 
-  		{% endfor %}
+            {% endfor %}
 
-  		</ul>
+        </ul>
 
-  		{% endif %}
+        {% endif %}
 
-  		{% endwith %}
+        {% endwith %}
 
-                <a class="login-text" href="{{url_for('disconnect')}}">logout</a>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+        <img class="site-logo" src="/catalog/images/catalog-icon.png">
+        A Floral Arrangement Catalog
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('disconnect')}}">Sign out</a>
+                </li>
+            </ul>
         </div>
-	<img class="site-logo" src="/catalog/images/catalog-icon.png"></img>
-	<h1 class="site-title">A Floral Arrangement Catalog</h1> 
+    </nav>
 </div>
