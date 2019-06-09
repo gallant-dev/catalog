@@ -9,6 +9,9 @@ unregistered users from modifying content.
 
 ## Requirements
 
+* Bootstrap 4.3.1
+* JQuery 3.3.1
+* popper.js 1.14.7
 * Python 2.7.12
 * Flask 0.12.2
 * VirtualBox 5.1.32
