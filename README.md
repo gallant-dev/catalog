@@ -1,4 +1,4 @@
-# My Catagories Project
+# Flower Catalog
 
 A python web application that allows users to create, read, update and delete
 flower arrangements and their associated flowers. API endpoints were also used
