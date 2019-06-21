@@ -12,55 +12,11 @@
     <link rel="apple-touch-icon" sizes="114x114" href="/catalog/images/apple-icon-114x114.png">
     <link rel="apple-touch-icon" sizes="120x120" href="/catalog/images/apple-icon-120x120.png">
     <link rel="apple-touch-icon" sizes="144x144" href="/catalog/images/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/catalog/images/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/catalog/images/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="/catalog/images/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/catalog/images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/catalog/images/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/catalog/images/favicon-16x16.png">
-    <link rel="manifest" href="/catalog/images/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="/catalog/images/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
-    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles.css')}}">
-    <link href="https://fonts.googleapis.com/css?family=Hammersmith+One|Hind+Madurai|Rochester" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta charset="utf-8">
-</head>
-{% include "header.html" %}
-<body>
-    <div class="content">
-        <h2 class="arrangement">{{arrangement.name}}</h2>
-
-        <div class="topmenu">
-            <a class="topmenuitem" href='{{url_for('showCatalog')}}'>Back</a>
-
-            <a class="topmenuitem" href='{{url_for('addFlower', arrangement_id = arrangement.id)}}'>Add New</a>
-        </div>
-
-        {% if flowers %}
-
-        {% for flower in flowers %}
-
-        <div class="arrangementLink">
-
-            <div class="cardPicContainer">
-
-                <img class="cardPic" src="{{flower.picture}}"></img>
-
-            </div>
-
-            <div class="cardDetails">
-                <h3>{{flower.name}}</h3>
-
-                <p class="description">{{flower.description}}</p>
-
-                <p class="price"> {{flower.price}} </p>
-
+    <link rel="apple-touch-icon" sizes="152x152" href="/catalog/images/apple-i
                 <div class="actions">
 
                     <a href='{{url_for('editFlower', arrangement_id = arrangement.id, flower_id = flower.id)}}'>Edit</a>
-
+                    <p> / </p>
                     <a href='{{url_for('deleteFlower', arrangement_id = arrangement.id, flower_id = flower.id)}}'>Delete</a>
 
                 </div>
