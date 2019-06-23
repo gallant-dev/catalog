@@ -1,16 +1,4 @@
-﻿<div class="header, content">
-    <div class="messages">
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        <ul>
-            {% for message in messages %}
-            <li class="actionhead"><strong>{{message}}</strong></li>
-            {% endfor %}
-        </ul>
-        {% endif %}
-        {% endwith %}
-    </div>
-
+﻿<div class="content">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="/catalog/">
             <img class="site-logo" src="/catalog/images/catalog-icon.png"alt="Site logo">
